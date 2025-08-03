@@ -22,6 +22,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Copy .env.example to .env
+      run: cp .env.example .env
+
     - name: Build
       run: |
         npm install
