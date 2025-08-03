@@ -38,23 +38,22 @@ The extension supports multiple languages:
 
 Language files are located in `src/i18n/translations/`.
 
-
 **How to contribute translations:**
 
 **Option 1: Create a Pull Request**
-1. Clone repository `git clone https://github.com/ZoltePudeleczko/tasks-do-list-extension.git`
+1. Fork and clone the repository
 2. Create a new branch: `git checkout -b feature/translation-[language-code]`
 3. Prepare translation
    - Create a new translation file in `src/i18n/translations/` (e.g., `fr.json` for French) and copy the structure from `en.json` and translate all values
    - Or identify the translation file for a language you've found a problem and fix it
-5. Commit and push your changes
-6. Create a pull request on [Pull Requests page](https://github.com/ZoltePudeleczko/tasks-do-list-extension/pulls)
+4. Commit and push your changes
+5. Create a pull request on [Pull Requests page](https://github.com/ZoltePudeleczko/tasks-do-list-extension/pulls)
 
 **Option 2: Use Issues**
 1. Take a look at the structure of English translation file `src/i18n/translations/en.json`
-1. Create a new issue on [Issues page](https://github.com/ZoltePudeleczko/tasks-do-list-extension/issues) with the title "Translation: [Language Name]"
-2. Attach the translated JSON file as a comment
-3. Include any notes about cultural considerations or context
+2. Create a new issue on [Issues page](https://github.com/ZoltePudeleczko/tasks-do-list-extension/issues) with the title "Translation: [Language Name]"
+3. Attach the translated JSON file as a comment
+4. Include any notes about cultural considerations or context
 
 ## 🛠️ Development
 
