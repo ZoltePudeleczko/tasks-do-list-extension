@@ -1304,7 +1304,7 @@ export const TasksManager: React.FC = () => {
           <div className="header-top">
             <div className="header-left">
               <button
-                onClick={handleRateExtension}
+                onClick={handleLogoClick}
                 className="extension-brand-btn"
               >
                 <div className="extension-icon">📋</div>
@@ -1374,7 +1374,7 @@ export const TasksManager: React.FC = () => {
         <div className="header-top">
           <div className="header-left">
                                                       <button
-                onClick={handleRateExtension}
+                onClick={handleLogoClick}
                 className="extension-brand-btn extension-brand-btn-styled"
               >
               <div className="extension-icon">
