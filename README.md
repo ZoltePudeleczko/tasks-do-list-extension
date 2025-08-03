@@ -116,6 +116,16 @@ Language files are located in `src/i18n/translations/`.
    - Click "Load unpacked"
    - Select the `dist` folder
 
+## ⚠️ Known Issues
+
+Due to limitations in the Google Tasks API, the following features are not supported:
+
+- **Task starring** - The API doesn't support marking tasks as important
+- **Time-specific due dates** - Only date (not time) can be set for task due dates
+
+These limitations are imposed by Google's Tasks API and affect all third-party Google Tasks applications, not just this extension.
+
+
 ## 🔗 Links
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 - [Privacy Policy](PRIVACY_POLICY.md)
