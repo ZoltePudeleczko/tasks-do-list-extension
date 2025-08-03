@@ -1,0 +1,139 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "selectLanguage": "Select language"
+  },
+  "app": {
+    "title": "Tasks-Do-List",
+    "brand": "Tasks-Do-List"
+  },
+  "accounts": {
+    "title": "Accounts",
+    "allAccounts": "All accounts",
+    "accountsCount": "{count} accounts",
+    "addGoogleAccount": "Add Google Account",
+    "removeAccount": "Remove account",
+    "removeAccountConfirm": "Are you sure you want to remove the account \"{name}\"? This will remove all associated task lists and tasks from this extension.",
+    "accountAlreadyConnected": "This Google account is already connected",
+    "accountAddedSuccess": "Account \"{name}\" added successfully!",
+    "accountRemovedSuccess": "Account \"{name}\" removed successfully!",
+    "failedToAddAccount": "Failed to add account. Please try again.",
+    "permissionDenied": "Permission denied. Please ensure you grant access to manage your Google Tasks when prompted.",
+    "authenticationFailed": "Authentication failed. Please try again.",
+    "failedToVerifyAccess": "Failed to verify Google Tasks access. Please try again.",
+    "failedToRemoveAccount": "Failed to remove account. Please try again.",
+    "toggleAccountsMenu": "Toggle accounts menu"
+  },
+  "tasks": {
+    "addTask": "Add task",
+    "newTask": "New task",
+    "taskTitle": "Task title",
+    "taskTitleRequired": "Task title is required",
+    "addNotes": "Add notes (optional)",
+    "dueDate": "Due date",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "clearDueDate": "Clear due date",
+    "completed": "Completed",
+    "completedCount": "Completed ({count})",
+    "noTasksYet": "No tasks yet",
+    "noTasksMessage": "Click the \"Add task\" button above to get started",
+    "loadingTasks": "Loading tasks...",
+    "loadingTaskLists": "Loading task lists...",
+    "failedToLoadTasks": "Failed to load tasks. Please try again.",
+    "failedToCreateTask": "Failed to create task. Please try again.",
+    "failedToUpdateTask": "Failed to update task. Please try again.",
+    "failedToDeleteTask": "Failed to delete task. Please try again.",
+    "failedToSaveTask": "Failed to save task. Please try again.",
+    "moveToTop": "Move to top",
+    "removeTask": "Remove task",
+    "markAsComplete": "Mark as complete",
+    "markAsIncomplete": "Mark as incomplete",
+    "clickToEdit": "Click to edit",
+    "unsavedChanges": "You have unsaved changes. Are you sure you want to cancel?",
+    "loadMore": "Load more",
+    "selectDate": "Select date"
+  },
+  "taskLists": {
+    "createNewList": "Create new list",
+    "renameList": "Rename list",
+    "deleteList": "Delete list",
+    "enterListName": "Enter task list name:",
+    "enterNewListName": "Enter new task list name:",
+    "deleteListConfirm": "Are you sure you want to delete the task list \"{title}\"? All tasks from this list will be removed as well.",
+    "cannotDeleteDefault": "Cannot delete the default task list. This is the primary list for this account and cannot be removed.",
+    "cannotCreateInAllMode": "Cannot create new lists when viewing all accounts. Please select a specific account first.",
+    "noAccountSelected": "No account selected for creating task list",
+    "listCreatedSuccess": "Task list \"{title}\" created successfully!",
+    "listRenamedSuccess": "Task list renamed to \"{title}\" successfully!",
+    "listDeletedSuccess": "Task list \"{title}\" deleted successfully!",
+    "failedToCreateList": "Failed to create task list. Please try again.",
+    "failedToRenameList": "Failed to rename task list. Please try again.",
+    "failedToDeleteList": "Failed to delete task list. Please try again.",
+    "listNotFound": "Task list not found on server. It may have been deleted elsewhere. Refreshing...",
+    "couldNotDetermineAccount": "Could not determine account for this task list"
+  },
+  "sorting": {
+    "sortBy": "Sort by",
+    "myOrder": "My order",
+    "dueDate": "Due date",
+    "title": "Title",
+    "sortingOptions": "Sorting options"
+  },
+  "dateGroups": {
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "overdue": "Overdue",
+    "noDate": "No date"
+  },
+  "emptyStates": {
+    "noAccountsConnected": "No accounts connected",
+    "noAccountsMessage": "Connect your Google account to start managing tasks",
+    "noTasksYet": "No tasks yet",
+    "noTasksMessage": "Click the \"Add task\" button above to get started"
+  },
+  "actions": {
+    "refreshTasks": "Refresh tasks",
+    "refreshTasksAndLists": "Refresh tasks and task lists",
+    "refreshAll": "Refresh all",
+    "failedToRefresh": "Failed to refresh. Please try again.",
+    "failedToLoadTaskLists": "Failed to load task lists. Please try again."
+  },
+  "menu": {
+    "rateExtension": "Rate this extension",
+    "reportIssue": "Report issue",
+    "buyMeACoffee": "Buy me a coffee",
+    "createNewList": "Create new list",
+    "renameList": "Rename list",
+    "deleteList": "Delete list",
+    "cannotCreateInAllMode": "You have to switch to a specific account to create a new list",
+    "defaultListCannotBeDeleted": "Default list cannot be deleted"
+  },
+  "validation": {
+    "taskTitleRequired": "Task title is required",
+    "failedToSaveTask": "Failed to save task. Please try again.",
+    "unsavedChangesConfirm": "You have unsaved changes. Are you sure you want to cancel?"
+  },
+  "toasts": {
+    "failedToLoadTaskLists": "Failed to load task lists. Please try again.",
+    "failedToLoadTasks": "Failed to load tasks. Please try again.",
+    "failedToCreateTask": "Failed to create task. Please try again.",
+    "failedToUpdateTask": "Failed to update task. Please try again.",
+    "failedToDeleteTask": "Failed to delete task. Please try again.",
+    "failedToMoveTask": "Failed to move task to top. Please try again.",
+    "failedToCreateList": "Failed to create task list. Please try again.",
+    "failedToRenameList": "Failed to rename task list. Please try again.",
+    "failedToDeleteList": "Failed to delete task list. Please try again.",
+    "failedToRefresh": "Failed to refresh. Please try again."
+  }
+} 

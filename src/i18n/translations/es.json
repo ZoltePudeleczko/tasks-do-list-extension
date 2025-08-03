@@ -1,0 +1,139 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "confirm": "Confirmar",
+    "yes": "Sí",
+    "no": "No",
+    "selectLanguage": "Seleccionar idioma"
+  },
+  "app": {
+    "title": "Tasks-Do-List",
+    "brand": "Tasks-Do-List"
+  },
+  "accounts": {
+    "title": "Cuentas",
+    "allAccounts": "Todas las cuentas",
+    "accountsCount": "{count} cuentas",
+    "addGoogleAccount": "Agregar cuenta de Google",
+    "removeAccount": "Eliminar cuenta",
+    "removeAccountConfirm": "¿Estás seguro de que quieres eliminar la cuenta \"{name}\"? Esto eliminará todas las listas de tareas y tareas asociadas de esta extensión.",
+    "accountAlreadyConnected": "Esta cuenta de Google ya está conectada",
+    "accountAddedSuccess": "¡Cuenta \"{name}\" agregada exitosamente!",
+    "accountRemovedSuccess": "¡Cuenta \"{name}\" eliminada exitosamente!",
+    "failedToAddAccount": "Error al agregar cuenta. Por favor, inténtalo de nuevo.",
+    "permissionDenied": "Permiso denegado. Por favor, asegúrate de otorgar acceso para gestionar tus Tareas de Google cuando se te solicite.",
+    "authenticationFailed": "Error de autenticación. Por favor, inténtalo de nuevo.",
+    "failedToVerifyAccess": "Error al verificar el acceso a Tareas de Google. Por favor, inténtalo de nuevo.",
+    "failedToRemoveAccount": "Error al eliminar cuenta. Por favor, inténtalo de nuevo.",
+    "toggleAccountsMenu": "Alternar menú de cuentas"
+  },
+  "tasks": {
+    "addTask": "Agregar tarea",
+    "newTask": "Nueva tarea",
+    "taskTitle": "Título de la tarea",
+    "taskTitleRequired": "El título de la tarea es obligatorio",
+    "addNotes": "Agregar notas (opcional)",
+    "dueDate": "Fecha de vencimiento",
+    "today": "Hoy",
+    "tomorrow": "Mañana",
+    "clearDueDate": "Limpiar fecha de vencimiento",
+    "completed": "Completadas",
+    "completedCount": "Completadas ({count})",
+    "noTasksYet": "Aún no hay tareas",
+    "noTasksMessage": "Haz clic en el botón \"Agregar tarea\" de arriba para comenzar",
+    "loadingTasks": "Cargando tareas...",
+    "loadingTaskLists": "Cargando listas de tareas...",
+    "failedToLoadTasks": "Error al cargar tareas. Por favor, inténtalo de nuevo.",
+    "failedToCreateTask": "Error al crear tarea. Por favor, inténtalo de nuevo.",
+    "failedToUpdateTask": "Error al actualizar tarea. Por favor, inténtalo de nuevo.",
+    "failedToDeleteTask": "Error al eliminar tarea. Por favor, inténtalo de nuevo.",
+    "failedToSaveTask": "Error al guardar tarea. Por favor, inténtalo de nuevo.",
+    "moveToTop": "Mover al inicio",
+    "removeTask": "Eliminar tarea",
+    "markAsComplete": "Marcar como completada",
+    "markAsIncomplete": "Marcar como incompleta",
+    "clickToEdit": "Haz clic para editar",
+    "unsavedChanges": "Tienes cambios sin guardar. ¿Estás seguro de que quieres cancelar?",
+    "loadMore": "Cargar más",
+    "selectDate": "Seleccionar fecha"
+  },
+  "taskLists": {
+    "createNewList": "Crear nueva lista",
+    "renameList": "Renombrar lista",
+    "deleteList": "Eliminar lista",
+    "enterListName": "Ingresa el nombre de la lista de tareas:",
+    "enterNewListName": "Ingresa el nuevo nombre de la lista de tareas:",
+    "deleteListConfirm": "¿Estás seguro de que quieres eliminar la lista de tareas \"{title}\"? Todas las tareas de esta lista también serán eliminadas.",
+    "cannotDeleteDefault": "No se puede eliminar la lista de tareas predeterminada. Esta es la lista principal de esta cuenta y no se puede eliminar.",
+    "cannotCreateInAllMode": "No se pueden crear nuevas listas al ver todas las cuentas. Por favor, selecciona una cuenta específica primero.",
+    "noAccountSelected": "No hay cuenta seleccionada para crear lista de tareas",
+    "listCreatedSuccess": "¡Lista de tareas \"{title}\" creada exitosamente!",
+    "listRenamedSuccess": "¡Lista de tareas renombrada a \"{title}\" exitosamente!",
+    "listDeletedSuccess": "¡Lista de tareas \"{title}\" eliminada exitosamente!",
+    "failedToCreateList": "Error al crear lista de tareas. Por favor, inténtalo de nuevo.",
+    "failedToRenameList": "Error al renombrar lista de tareas. Por favor, inténtalo de nuevo.",
+    "failedToDeleteList": "Error al eliminar lista de tareas. Por favor, inténtalo de nuevo.",
+    "listNotFound": "Lista de tareas no encontrada en el servidor. Puede haber sido eliminada en otro lugar. Actualizando...",
+    "couldNotDetermineAccount": "No se pudo determinar la cuenta para esta lista de tareas"
+  },
+  "sorting": {
+    "sortBy": "Ordenar por",
+    "myOrder": "Mi orden",
+    "dueDate": "Fecha de vencimiento",
+    "title": "Título",
+    "sortingOptions": "Opciones de ordenamiento"
+  },
+  "dateGroups": {
+    "today": "Hoy",
+    "tomorrow": "Mañana",
+    "overdue": "Vencidas",
+    "noDate": "Sin fecha"
+  },
+  "emptyStates": {
+    "noAccountsConnected": "No hay cuentas conectadas",
+    "noAccountsMessage": "Conecta tu cuenta de Google para comenzar a gestionar tareas",
+    "noTasksYet": "Aún no hay tareas",
+    "noTasksMessage": "Haz clic en el botón \"Agregar tarea\" de arriba para comenzar"
+  },
+  "actions": {
+    "refreshTasks": "Actualizar tareas",
+    "refreshTasksAndLists": "Actualizar tareas y listas de tareas",
+    "refreshAll": "Actualizar todo",
+    "failedToRefresh": "Error al actualizar. Por favor, inténtalo de nuevo.",
+    "failedToLoadTaskLists": "Error al cargar listas de tareas. Por favor, inténtalo de nuevo."
+  },
+  "menu": {
+    "rateExtension": "Calificar esta extensión",
+    "reportIssue": "Reportar problema",
+    "buyMeACoffee": "Invítame un café",
+    "createNewList": "Crear nueva lista",
+    "renameList": "Renombrar lista",
+    "deleteList": "Eliminar lista",
+    "cannotCreateInAllMode": "Tienes que cambiar a una cuenta específica para crear una nueva lista",
+    "defaultListCannotBeDeleted": "La lista predeterminada no se puede eliminar"
+  },
+  "validation": {
+    "taskTitleRequired": "El título de la tarea es obligatorio",
+    "failedToSaveTask": "Error al guardar tarea. Por favor, inténtalo de nuevo.",
+    "unsavedChangesConfirm": "Tienes cambios sin guardar. ¿Estás seguro de que quieres cancelar?"
+  },
+  "toasts": {
+    "failedToLoadTaskLists": "Error al cargar listas de tareas. Por favor, inténtalo de nuevo.",
+    "failedToLoadTasks": "Error al cargar tareas. Por favor, inténtalo de nuevo.",
+    "failedToCreateTask": "Error al crear tarea. Por favor, inténtalo de nuevo.",
+    "failedToUpdateTask": "Error al actualizar tarea. Por favor, inténtalo de nuevo.",
+    "failedToDeleteTask": "Error al eliminar tarea. Por favor, inténtalo de nuevo.",
+    "failedToMoveTask": "Error al mover tarea al inicio. Por favor, inténtalo de nuevo.",
+    "failedToCreateList": "Error al crear lista de tareas. Por favor, inténtalo de nuevo.",
+    "failedToRenameList": "Error al renombrar lista de tareas. Por favor, inténtalo de nuevo.",
+    "failedToDeleteList": "Error al eliminar lista de tareas. Por favor, inténtalo de nuevo.",
+    "failedToRefresh": "Error al actualizar. Por favor, inténtalo de nuevo."
+  }
+} 

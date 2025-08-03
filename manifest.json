@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Tasks-Do-List",
+  "version": "1.0.0",
+  "description": "Manage Google Tasks with multi-account support",
+  "permissions": [
+    "identity",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://tasks.googleapis.com/*",
+    "https://google-oauth-worker.zborowski.workers.dev/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tasks-Do-List",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["src/i18n/translations/*.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

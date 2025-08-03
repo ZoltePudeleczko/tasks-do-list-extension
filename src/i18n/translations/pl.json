@@ -1,0 +1,139 @@
+{
+  "common": {
+    "loading": "Ładowanie...",
+    "error": "Błąd",
+    "success": "Sukces",
+    "cancel": "Anuluj",
+    "save": "Zapisz",
+    "delete": "Usuń",
+    "edit": "Edytuj",
+    "close": "Zamknij",
+    "confirm": "Potwierdź",
+    "yes": "Tak",
+    "no": "Nie",
+    "selectLanguage": "Wybierz język"
+  },
+  "app": {
+    "title": "Tasks-Do-List",
+    "brand": "Tasks-Do-List"
+  },
+  "accounts": {
+    "title": "Konta",
+    "allAccounts": "Wszystkie konta",
+    "accountsCount": "{count} kont",
+    "addGoogleAccount": "Dodaj konto Google",
+    "removeAccount": "Usuń konto",
+    "removeAccountConfirm": "Czy na pewno chcesz usunąć konto \"{name}\"? To usunie wszystkie powiązane listy zadań i zadania z tej rozszerzenia.",
+    "accountAlreadyConnected": "To konto Google jest już połączone",
+    "accountAddedSuccess": "Konto \"{name}\" zostało pomyślnie dodane!",
+    "accountRemovedSuccess": "Konto \"{name}\" zostało pomyślnie usunięte!",
+    "failedToAddAccount": "Nie udało się dodać konta. Spróbuj ponownie.",
+    "permissionDenied": "Odmowa dostępu. Upewnij się, że udzielasz dostępu do zarządzania zadaniami Google, gdy zostaniesz o to poproszony.",
+    "authenticationFailed": "Błąd uwierzytelniania. Spróbuj ponownie.",
+    "failedToVerifyAccess": "Nie udało się zweryfikować dostępu do zadań Google. Spróbuj ponownie.",
+    "failedToRemoveAccount": "Nie udało się usunąć konta. Spróbuj ponownie.",
+    "toggleAccountsMenu": "Przełącz menu kont"
+  },
+  "tasks": {
+    "addTask": "Dodaj zadanie",
+    "newTask": "Nowe zadanie",
+    "taskTitle": "Tytuł zadania",
+    "taskTitleRequired": "Tytuł zadania jest wymagany",
+    "addNotes": "Dodaj notatki (opcjonalnie)",
+    "dueDate": "Termin",
+    "today": "Dzisiaj",
+    "tomorrow": "Jutro",
+    "clearDueDate": "Wyczyść termin",
+    "completed": "Ukończone",
+    "completedCount": "Ukończone ({count})",
+    "noTasksYet": "Brak zadań",
+    "noTasksMessage": "Kliknij przycisk \"Dodaj zadanie\" powyżej, aby rozpocząć",
+    "loadingTasks": "Ładowanie zadań...",
+    "loadingTaskLists": "Ładowanie list zadań...",
+    "failedToLoadTasks": "Nie udało się załadować zadań. Spróbuj ponownie.",
+    "failedToCreateTask": "Nie udało się utworzyć zadania. Spróbuj ponownie.",
+    "failedToUpdateTask": "Nie udało się zaktualizować zadania. Spróbuj ponownie.",
+    "failedToDeleteTask": "Nie udało się usunąć zadania. Spróbuj ponownie.",
+    "failedToSaveTask": "Nie udało się zapisać zadania. Spróbuj ponownie.",
+    "moveToTop": "Przenieś na górę",
+    "removeTask": "Usuń zadanie",
+    "markAsComplete": "Oznacz jako ukończone",
+    "markAsIncomplete": "Oznacz jako nieukończone",
+    "clickToEdit": "Kliknij, aby edytować",
+    "unsavedChanges": "Masz niezapisane zmiany. Czy na pewno chcesz anulować?",
+    "loadMore": "Załaduj więcej",
+    "selectDate": "Wybierz datę"
+  },
+  "taskLists": {
+    "createNewList": "Utwórz nową listę",
+    "renameList": "Zmień nazwę listy",
+    "deleteList": "Usuń listę",
+    "enterListName": "Wprowadź nazwę listy zadań:",
+    "enterNewListName": "Wprowadź nową nazwę listy zadań:",
+    "deleteListConfirm": "Czy na pewno chcesz usunąć listę zadań \"{title}\"? Wszystkie zadania z tej listy również zostaną usunięte.",
+    "cannotDeleteDefault": "Nie można usunąć domyślnej listy zadań. To jest główna lista dla tego konta i nie może zostać usunięta.",
+    "cannotCreateInAllMode": "Nie można tworzyć nowych list podczas przeglądania wszystkich kont. Najpierw wybierz konkretne konto.",
+    "noAccountSelected": "Nie wybrano konta do utworzenia listy zadań",
+    "listCreatedSuccess": "Lista zadań \"{title}\" została pomyślnie utworzona!",
+    "listRenamedSuccess": "Lista zadań została pomyślnie przemianowana na \"{title}\"!",
+    "listDeletedSuccess": "Lista zadań \"{title}\" została pomyślnie usunięta!",
+    "failedToCreateList": "Nie udało się utworzyć listy zadań. Spróbuj ponownie.",
+    "failedToRenameList": "Nie udało się zmienić nazwy listy zadań. Spróbuj ponownie.",
+    "failedToDeleteList": "Nie udało się usunąć listy zadań. Spróbuj ponownie.",
+    "listNotFound": "Lista zadań nie została znaleziona na serwerze. Może została usunięta w innym miejscu. Odświeżanie...",
+    "couldNotDetermineAccount": "Nie można określić konta dla tej listy zadań"
+  },
+  "sorting": {
+    "sortBy": "Sortuj według",
+    "myOrder": "Moja kolejność",
+    "dueDate": "Termin",
+    "title": "Tytuł",
+    "sortingOptions": "Opcje sortowania"
+  },
+  "dateGroups": {
+    "today": "Dzisiaj",
+    "tomorrow": "Jutro",
+    "overdue": "Przeterminowane",
+    "noDate": "Brak daty"
+  },
+  "emptyStates": {
+    "noAccountsConnected": "Brak połączonych kont",
+    "noAccountsMessage": "Połącz swoje konto Google, aby rozpocząć zarządzanie zadaniami",
+    "noTasksYet": "Brak zadań",
+    "noTasksMessage": "Kliknij przycisk \"Dodaj zadanie\" powyżej, aby rozpocząć"
+  },
+  "actions": {
+    "refreshTasks": "Odśwież zadania",
+    "refreshTasksAndLists": "Odśwież zadania i listy zadań",
+    "refreshAll": "Odśwież wszystko",
+    "failedToRefresh": "Nie udało się odświeżyć. Spróbuj ponownie.",
+    "failedToLoadTaskLists": "Nie udało się załadować list zadań. Spróbuj ponownie."
+  },
+  "menu": {
+    "rateExtension": "Oceń to rozszerzenie",
+    "reportIssue": "Zgłoś problem",
+    "buyMeACoffee": "Postaw mi kawę",
+    "createNewList": "Utwórz nową listę",
+    "renameList": "Zmień nazwę listy",
+    "deleteList": "Usuń listę",
+    "cannotCreateInAllMode": "Musisz przełączyć się na konkretne konto, aby utworzyć nową listę",
+    "defaultListCannotBeDeleted": "Lista domyślna nie może zostać usunięta"
+  },
+  "validation": {
+    "taskTitleRequired": "Tytuł zadania jest wymagany",
+    "failedToSaveTask": "Nie udało się zapisać zadania. Spróbuj ponownie.",
+    "unsavedChangesConfirm": "Masz niezapisane zmiany. Czy na pewno chcesz anulować?"
+  },
+  "toasts": {
+    "failedToLoadTaskLists": "Nie udało się załadować list zadań. Spróbuj ponownie.",
+    "failedToLoadTasks": "Nie udało się załadować zadań. Spróbuj ponownie.",
+    "failedToCreateTask": "Nie udało się utworzyć zadania. Spróbuj ponownie.",
+    "failedToUpdateTask": "Nie udało się zaktualizować zadania. Spróbuj ponownie.",
+    "failedToDeleteTask": "Nie udało się usunąć zadania. Spróbuj ponownie.",
+    "failedToMoveTask": "Nie udało się przenieść zadania na górę. Spróbuj ponownie.",
+    "failedToCreateList": "Nie udało się utworzyć listy zadań. Spróbuj ponownie.",
+    "failedToRenameList": "Nie udało się zmienić nazwy listy zadań. Spróbuj ponownie.",
+    "failedToDeleteList": "Nie udało się usunąć listy zadań. Spróbuj ponownie.",
+    "failedToRefresh": "Nie udało się odświeżyć. Spróbuj ponownie."
+  }
+} 

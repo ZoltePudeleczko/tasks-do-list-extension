@@ -1,0 +1,133 @@
+/* Typography Scale */
+:root {
+  /* Font Sizes */
+  --text-xs: 11px;      /* Due dates, badges */
+  --text-sm: 12px;      /* Notes, small labels */
+  --text-base: 14px;    /* Body, task titles */
+  --text-lg: 16px;      /* Section headers */
+  --text-xl: 18px;      /* Main header */
+  --text-2xl: 24px;     /* Large icons, special elements */
+
+  /* Font Weights */
+  --font-normal: 400;   /* Body text, notes */
+  --font-medium: 500;   /* Task titles, labels */
+  --font-semibold: 600; /* Headers, important labels */
+  --font-bold: 700;     /* Very important elements */
+
+  /* Text Colors */
+  --text-primary: #212529;    /* Main text */
+  --text-secondary: #6c757d;  /* Secondary text */
+  --text-muted: #999;         /* Muted text */
+  --text-success: #28a745;    /* Success states */
+  --text-danger: #dc3545;     /* Error states */
+  --text-info: #007bff;       /* Links, actions */
+  --text-warning: #ffc107;    /* Warning states */
+
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-hover: #e9ecef;
+  --bg-success: #d4edda;
+  --bg-danger: #f8d7da;
+  --bg-info: #e3f2fd;
+
+  /* Border Colors */
+  --border-light: #e1e5e9;
+  --border-medium: #dee2e6;
+  --border-dark: #adb5bd;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 50%;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow: 0.3s ease;
+
+  /* Component Sizes */
+  --app-width: 400px;
+  --app-min-height: 600px;
+  --icon-size-sm: 20px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 32px;
+  --icon-size-xl: 36px;
+  --avatar-size: 24px;
+  --avatar-size-lg: 32px;
+  --checkbox-size: 20px;
+  --button-size-sm: 20px;
+  --button-size-md: 24px;
+  --button-size-lg: 32px;
+  --button-size-xl: 36px;
+
+  /* Layout Dimensions */
+  --slider-width: 280px;
+  --menu-min-width: 180px;
+  --menu-min-width-lg: 220px;
+  --subtask-indent: 20px;
+  --subtask-indent-lg: 40px;
+
+  /* Border Widths */
+  --border-width-thin: 1px;
+  --border-width-normal: 2px;
+  --border-width-thick: 3px;
+
+  /* Shadows */
+  --shadow-light: 0 2px 8px rgba(0,0,0,0.12);
+  --shadow-medium: 0 4px 16px rgba(0,0,0,0.13);
+
+  /* Z-Index */
+  --z-overlay: 999;
+  --z-dropdown: 100;
+  --z-toast: 10000;
+
+  /* Opacity */
+  --opacity-disabled: 0.6;
+  --opacity-completed: 0.6;
+  --opacity-overlay: 0.3;
+
+  /* Additional Colors */
+  --border-error: #f5c6cb;
+  --text-gray: #666;
+  --text-gray-light: #999;
+  --bg-light-gray: #f0f0f0;
+  --bg-blue-light: #e3f2fd;
+  --bg-blue-hover: #0056b3;
+  --bg-red-hover: #c82333;
+  --bg-fafafa: #fafafa;
+  --bg-f0f8ff: #f0f8ff;
+  --border-ddd: #ddd;
+  --border-e0e0e0: #e0e0e0;
+  --border-eee: #eee;
+  --text-333: #333;
+  --text-white: #fff;
+  --bg-blue-rgba-05: rgba(0, 123, 255, 0.05);
+  --bg-blue-rgba-1: rgba(0, 123, 255, 0.1);
+  --shadow-dropdown: 0 2px 8px rgba(0,0,0,0.1);
+
+  /* Additional Spacing and Layout */
+  --spacing-2px: 2px;
+  --spacing-48px: 48px;
+  --margin-left-48px: 48px;
+  --margin-right-2px: 2px;
+  --spacing-20px: 20px;
+  --spacing-40px: 40px;
+  --spacing-50px: 50px;
+  --spacing-200px: 200px;
+  --spacing-300px: 300px;
+  --spacing-480px: 480px;
+  --font-size-10px: 10px;
+  --font-size-13px: 13px;
+  --font-size-48px: 48px;
+  --letter-spacing-05px: 0.5px;
+  --border-radius-10px: 10px;
+} 
