@@ -68,8 +68,8 @@
     "createNewList": "Create new list",
     "renameList": "Rename list",
     "deleteList": "Delete list",
-    "enterListName": "Enter task list name:",
-    "enterNewListName": "Enter new task list name:",
+    "enterListName": "Enter task list name",
+    "enterNewListName": "Enter new task list name",
     "deleteListConfirm": "Are you sure you want to delete the task list \"{title}\"? All tasks from this list will be removed as well.",
     "cannotDeleteDefault": "Cannot delete the default task list. This is the primary list for this account and cannot be removed.",
     "cannotCreateInAllMode": "Cannot create new lists when viewing all accounts. Please select a specific account first.",
@@ -95,6 +95,31 @@
     "tomorrow": "Tomorrow",
     "overdue": "Overdue",
     "noDate": "No date"
+  },
+  "dateFormat": {
+    "dayNames": {
+      "sun": "Sun",
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat"
+    },
+    "monthNames": {
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
+    }
   },
   "emptyStates": {
     "noAccountsConnected": "No accounts connected",

@@ -83,7 +83,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({
 
 
 
-  const handleSave = async () => {
+  const handleSave = async (closeEditView: boolean = true) => {
     if (!editTitle.trim()) {
       setValidationError(t('validation.taskTitleRequired'));
       return;
@@ -114,10 +114,12 @@ export const TaskItem: React.FC<TaskItemProps> = ({
         updates.due = ''; // Send empty string instead of undefined
       }
 
-      await onEdit(task.id, updates);
+      await onEdit(task.id, updates, closeEditView);
       
-      // Exit editing mode after successful save
-      onCancelEdit?.();
+      // Exit editing mode after successful save only if closeEditView is true
+      if (closeEditView) {
+        onCancelEdit?.();
+      }
     } catch (error) {
       setValidationError(t('validation.failedToSaveTask'));
     } finally {
@@ -134,7 +136,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({
     // Set a new timeout for delayed save
     const timeout = setTimeout(() => {
       if (hasChanges) {
-        handleSave();
+        handleSave(false); // Don't close edit view when saving on blur
       }
     }, 500); // 500ms delay
     
@@ -171,30 +173,32 @@ export const TaskItem: React.FC<TaskItemProps> = ({
     } else if (date.toDateString() === tomorrow.toDateString()) {
       return t('dateGroups.tomorrow');
     } else {
-      // Use the same format as formatCustomDate
-      const nextYear = new Date(today.getFullYear() + 1, 0, 1); // January 1st of next year
-      
-      const day = String(date.getDate()).padStart(2, '0');
-      const month = String(date.getMonth() + 1).padStart(2, '0');
+      // Use localized month names for specific dates
+      const monthKeys = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+      const month = t(`dateFormat.monthNames.${monthKeys[date.getMonth()]}`);
+      const day = date.getDate();
       const year = date.getFullYear();
       
       // If the date is in the next year, include the year
+      const nextYear = new Date(today.getFullYear() + 1, 0, 1);
       if (date >= nextYear) {
-        return `${day}.${month}.${year}`;
+        return `${day} ${month} ${year}`;
       } else {
-        return `${day}.${month}`;
+        return `${day} ${month}`;
       }
     }
   };
 
   const formatCompletedDate = (completedDate: string) => {
     const date = new Date(completedDate);
-    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     
-    const dayName = dayNames[date.getDay()];
+    // Get localized day and month names
+    const dayKeys = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    const monthKeys = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+    
+    const dayName = t(`dateFormat.dayNames.${dayKeys[date.getDay()]}`);
     const day = date.getDate();
-    const month = monthNames[date.getMonth()];
+    const month = t(`dateFormat.monthNames.${monthKeys[date.getMonth()]}`);
     
     const dateString = `${dayName}, ${day} ${month}`;
     return `${t('tasks.completed')}: ${dateString}`;
@@ -225,15 +229,17 @@ export const TaskItem: React.FC<TaskItemProps> = ({
     const today = new Date();
     const nextYear = new Date(today.getFullYear() + 1, 0, 1); // January 1st of next year
     
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
+    // Use localized month names
+    const monthKeys = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+    const month = t(`dateFormat.monthNames.${monthKeys[date.getMonth()]}`);
+    const day = date.getDate();
     const year = date.getFullYear();
     
     // If the date is in the next year, include the year
     if (date >= nextYear) {
-      return `${day}.${month}.${year}`;
+      return `${day} ${month} ${year}`;
     } else {
-      return `${day}.${month}`;
+      return `${day} ${month}`;
     }
   };
 
@@ -265,7 +271,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({
               // If clicking on the container but not on inputs, exit editing
               if (e.target === e.currentTarget) {
                 if (hasChanges) {
-                  handleSave();
+                  handleSave(true);
                 }
                 onCancelEdit?.();
               }
@@ -279,7 +285,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
                   e.preventDefault();
-                  handleSave();
+                  handleSave(true);
                 } else if (e.key === 'Escape') {
                   e.preventDefault();
                   handleCancel();
@@ -424,7 +430,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({
             
             <div className="task-edit-actions">
               <button
-                onClick={handleSave}
+                onClick={() => handleSave(true)}
                 disabled={isSaving}
                 className="task-save-btn"
                 title={t('common.save')}

@@ -68,8 +68,8 @@
     "createNewList": "Crear nueva lista",
     "renameList": "Renombrar lista",
     "deleteList": "Eliminar lista",
-    "enterListName": "Ingresa el nombre de la lista de tareas:",
-    "enterNewListName": "Ingresa el nuevo nombre de la lista de tareas:",
+    "enterListName": "Ingresa el nombre de la lista de tareas",
+    "enterNewListName": "Ingresa el nuevo nombre de la lista de tareas",
     "deleteListConfirm": "¿Estás seguro de que quieres eliminar la lista de tareas \"{title}\"? Todas las tareas de esta lista también serán eliminadas.",
     "cannotDeleteDefault": "No se puede eliminar la lista de tareas predeterminada. Esta es la lista principal de esta cuenta y no se puede eliminar.",
     "cannotCreateInAllMode": "No se pueden crear nuevas listas al ver todas las cuentas. Por favor, selecciona una cuenta específica primero.",
@@ -95,6 +95,31 @@
     "tomorrow": "Mañana",
     "overdue": "Vencidas",
     "noDate": "Sin fecha"
+  },
+  "dateFormat": {
+    "dayNames": {
+      "sun": "Dom",
+      "mon": "Lun",
+      "tue": "Mar",
+      "wed": "Mié",
+      "thu": "Jue",
+      "fri": "Vie",
+      "sat": "Sáb"
+    },
+    "monthNames": {
+      "jan": "Ene",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Abr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Ago",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dic"
+    }
   },
   "emptyStates": {
     "noAccountsConnected": "No hay cuentas conectadas",

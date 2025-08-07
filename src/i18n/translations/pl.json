@@ -68,8 +68,8 @@
     "createNewList": "Utwórz nową listę",
     "renameList": "Zmień nazwę listy",
     "deleteList": "Usuń listę",
-    "enterListName": "Wprowadź nazwę listy zadań:",
-    "enterNewListName": "Wprowadź nową nazwę listy zadań:",
+    "enterListName": "Wprowadź nazwę listy zadań",
+    "enterNewListName": "Wprowadź nową nazwę listy zadań",
     "deleteListConfirm": "Czy na pewno chcesz usunąć listę zadań \"{title}\"? Wszystkie zadania z tej listy również zostaną usunięte.",
     "cannotDeleteDefault": "Nie można usunąć domyślnej listy zadań. To jest główna lista dla tego konta i nie może zostać usunięta.",
     "cannotCreateInAllMode": "Nie można tworzyć nowych list podczas przeglądania wszystkich kont. Najpierw wybierz konkretne konto.",
@@ -95,6 +95,31 @@
     "tomorrow": "Jutro",
     "overdue": "Przeterminowane",
     "noDate": "Brak daty"
+  },
+  "dateFormat": {
+    "dayNames": {
+      "sun": "Ndz",
+      "mon": "Pon",
+      "tue": "Wt",
+      "wed": "Śr",
+      "thu": "Czw",
+      "fri": "Pt",
+      "sat": "Sob"
+    },
+    "monthNames": {
+      "jan": "Sty",
+      "feb": "Lut",
+      "mar": "Mar",
+      "apr": "Kwi",
+      "may": "Maj",
+      "jun": "Cze",
+      "jul": "Lip",
+      "aug": "Sie",
+      "sep": "Wrz",
+      "oct": "Paź",
+      "nov": "Lis",
+      "dec": "Gru"
+    }
   },
   "emptyStates": {
     "noAccountsConnected": "Brak połączonych kont",

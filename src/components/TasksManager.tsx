@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { TaskItem } from './TaskItem';
+import { Modal } from './Modal';
 import { GoogleTask, GoogleTaskList, UserAccount, ExtensionSettings } from '../types';
 import { AuthService } from '../services/authService';
 import { GoogleTasksAPIService } from '../services/googleTasksAPI';
@@ -186,50 +187,52 @@ const SliderMenu: React.FC<{
       </div>
 
       {/* Account Avatar Button */}
-      <button
-        className="slider-toggle-btn"
-        onClick={() => onToggle(!isOpen)}
-        title={t('accounts.toggleAccountsMenu')}
-      >
-        {currentAccountId === 'ALL' ? (
-          <div className="account-avatar-sm">
-            {getAllAccountsAvatar()}
-          </div>
-        ) : currentAccountId && accounts.length > 0 ? (
-          (() => {
-            const account = accounts.find(acc => acc.id === currentAccountId);
-            return account ? (
-              <div className="account-avatar-sm">
-                {account.picture ? (
-                  <img src={account.picture} alt="" className="account-avatar-img" />
-                ) : (
-                  getAccountInitials(account.name)
-                )}
-              </div>
-            ) : (
-              <div className="account-avatar-sm">
-                {accounts[0].picture ? (
-                  <img src={accounts[0].picture} alt="" className="account-avatar-img" />
-                ) : (
-                  getAccountInitials(accounts[0].name)
-                )}
-              </div>
-            );
-          })()
-        ) : accounts.length > 0 ? (
-          <div className="account-avatar-sm">
-            {accounts[0].picture ? (
-              <img src={accounts[0].picture} alt="" className="account-avatar-img" />
-            ) : (
-              getAccountInitials(accounts[0].name)
-            )}
-          </div>
-        ) : (
-          <div className="account-avatar-sm">
-            <span className="account-avatar-placeholder">?</span>
-          </div>
-        )}
-      </button>
+      {accounts.length > 0 && (
+        <button
+          className="slider-toggle-btn"
+          onClick={() => onToggle(!isOpen)}
+          title={t('accounts.toggleAccountsMenu')}
+        >
+          {currentAccountId === 'ALL' ? (
+            <div className="account-avatar-sm">
+              {getAllAccountsAvatar()}
+            </div>
+          ) : currentAccountId && accounts.length > 0 ? (
+            (() => {
+              const account = accounts.find(acc => acc.id === currentAccountId);
+              return account ? (
+                <div className="account-avatar-sm">
+                  {account.picture ? (
+                    <img src={account.picture} alt="" className="account-avatar-img" />
+                  ) : (
+                    getAccountInitials(account.name)
+                  )}
+                </div>
+              ) : (
+                <div className="account-avatar-sm">
+                  {accounts[0].picture ? (
+                    <img src={accounts[0].picture} alt="" className="account-avatar-img" />
+                  ) : (
+                    getAccountInitials(accounts[0].name)
+                  )}
+                </div>
+              );
+            })()
+          ) : accounts.length > 0 ? (
+            <div className="account-avatar-sm">
+              {accounts[0].picture ? (
+                <img src={accounts[0].picture} alt="" className="account-avatar-img" />
+              ) : (
+                getAccountInitials(accounts[0].name)
+              )}
+            </div>
+          ) : (
+            <div className="account-avatar-sm">
+              <span className="account-avatar-placeholder">?</span>
+            </div>
+          )}
+        </button>
+      )}
     </>
   );
 };
@@ -261,6 +264,14 @@ export const TasksManager: React.FC = () => {
   const [hasLoadedSavedSelections, setHasLoadedSavedSelections] = useState(false);
   // Add state for slider menu
   const [showSliderMenu, setShowSliderMenu] = useState(false);
+  
+  // Language selector state
+  const [showLanguageSelector, setShowLanguageSelector] = useState(false);
+  
+  // Modal state
+  const [showCreateListModal, setShowCreateListModal] = useState(false);
+  const [showRenameListModal, setShowRenameListModal] = useState(false);
+  const [renameListCurrentName, setRenameListCurrentName] = useState('');
 
   const externalLinks = getExternalLinks();
 
@@ -270,6 +281,7 @@ export const TasksManager: React.FC = () => {
     setShowMainKebabMenu(false);
     setShowTaskListKebabMenu(false);
     setShowSortingDropdown(false);
+    setShowLanguageSelector(false);
   };
   
   const openTaskListDropdown = () => {
@@ -290,6 +302,11 @@ export const TasksManager: React.FC = () => {
   const openSortingDropdown = () => {
     closeAllDropdowns();
     setShowSortingDropdown(true);
+  };
+
+  const openLanguageSelector = () => {
+    closeAllDropdowns();
+    setShowLanguageSelector(true);
   };
 
   // Helper: get current account or all
@@ -399,22 +416,22 @@ export const TasksManager: React.FC = () => {
     }
   }, [currentTaskListId]);
 
-  // Close dropdown on outside click
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      // Close task list dropdown when clicking outside
-      if (taskListPickerRef.current && !taskListPickerRef.current.contains(e.target as Node)) {
-        setShowTaskListDropdown(false);
+      // Close dropdown on outside click
+    useEffect(() => {
+      function handleClick(e: MouseEvent) {
+        // Close task list dropdown when clicking outside
+        if (taskListPickerRef.current && !taskListPickerRef.current.contains(e.target as Node)) {
+          setShowTaskListDropdown(false);
+        }
       }
-    }
-    
-    // Add event listener if any dropdown is open
-    if (showTaskListDropdown || showMainKebabMenu || showTaskListKebabMenu || showSortingDropdown) {
-      document.addEventListener('mousedown', handleClick);
-    }
-    
-    return () => document.removeEventListener('mousedown', handleClick);
-  }, [showTaskListDropdown, showMainKebabMenu, showTaskListKebabMenu, showSortingDropdown]);
+      
+      // Add event listener if any dropdown is open
+      if (showTaskListDropdown || showMainKebabMenu || showTaskListKebabMenu || showSortingDropdown || showLanguageSelector) {
+        document.addEventListener('mousedown', handleClick);
+      }
+      
+      return () => document.removeEventListener('mousedown', handleClick);
+    }, [showTaskListDropdown, showMainKebabMenu, showTaskListKebabMenu, showSortingDropdown, showLanguageSelector]);
 
   const loadSettings = async () => {
     try {
@@ -943,8 +960,11 @@ export const TasksManager: React.FC = () => {
       return;
     }
     
-    const listName = prompt('Enter task list name:');
-    if (!listName || !listName.trim()) return;
+    setShowCreateListModal(true);
+  };
+
+  const handleCreateTaskListConfirm = async (listName: string) => {
+    if (!currentAccount) return;
 
     try {
       const api = new GoogleTasksAPIService(currentAccount);
@@ -964,6 +984,8 @@ export const TasksManager: React.FC = () => {
     } catch (err) {
       showErrorToast('Failed to create task list. Please try again.');
       console.error('Failed to create task list:', err);
+    } finally {
+      setShowCreateListModal(false);
     }
   };
 
@@ -1091,15 +1113,17 @@ export const TasksManager: React.FC = () => {
       const today = new Date();
       const nextYear = new Date(today.getFullYear() + 1, 0, 1); // January 1st of next year
       
-      const day = String(date.getDate()).padStart(2, '0');
-      const month = String(date.getMonth() + 1).padStart(2, '0');
+      // Use localized month names
+      const monthKeys = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+      const month = t(`dateFormat.monthNames.${monthKeys[date.getMonth()]}`);
+      const day = date.getDate();
       const year = date.getFullYear();
       
       // If the date is in the next year, include the year
       if (date >= nextYear) {
-        return `${day}.${month}.${year}`;
+        return `${day} ${month} ${year}`;
       } else {
-        return `${day}.${month}`;
+        return `${day} ${month}`;
       }
     };
     
@@ -1131,21 +1155,22 @@ export const TasksManager: React.FC = () => {
           groupKey = 'overdue';
           groupLabel = t('dateGroups.overdue');
         } else {
-          // Format as dd.MM or dd.MM.YYYY for specific dates
+          // Format as localized month names for specific dates
           const today = new Date();
           const nextYear = new Date(today.getFullYear() + 1, 0, 1); // January 1st of next year
           
-          const day = String(dueDate.getDate()).padStart(2, '0');
-          const month = String(dueDate.getMonth() + 1).padStart(2, '0');
+          const monthKeys = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+          const month = t(`dateFormat.monthNames.${monthKeys[dueDate.getMonth()]}`);
+          const day = dueDate.getDate();
           const year = dueDate.getFullYear();
           
           groupKey = dueDate.toISOString().split('T')[0]; // Use date as key for sorting
           
           // If the date is in the next year, include the year
           if (dueDate >= nextYear) {
-            groupLabel = `${day}.${month}.${year}`;
+            groupLabel = `${day} ${month} ${year}`;
           } else {
-            groupLabel = `${day}.${month}`;
+            groupLabel = `${day} ${month}`;
           }
         }
       }
@@ -1199,8 +1224,32 @@ export const TasksManager: React.FC = () => {
       return;
     }
 
-    const newName = prompt('Enter new task list name:', currentList.title);
-    if (!newName || !newName.trim() || newName.trim() === currentList.title) return;
+    setRenameListCurrentName(currentList.title);
+    setShowRenameListModal(true);
+  };
+
+  const handleRenameTaskListConfirm = async (newName: string) => {
+    if (!currentTaskListId || !newName.trim()) return;
+    
+    const currentList = visibleTaskLists.find(list => list.id === currentTaskListId);
+    if (!currentList || newName.trim() === currentList.title) {
+      setShowRenameListModal(false);
+      return;
+    }
+
+    // Find the account that owns this task list
+    let accountForList: UserAccount | undefined;
+    if (currentAccountId === 'ALL') {
+      accountForList = accounts.find(a => (taskLists[a.id] || []).some(l => l.id === currentTaskListId));
+    } else {
+      accountForList = currentAccount;
+    }
+
+    if (!accountForList) {
+      showErrorToast('Could not determine account for this task list');
+      setShowRenameListModal(false);
+      return;
+    }
 
     try {
       const api = new GoogleTasksAPIService(accountForList);
@@ -1218,6 +1267,8 @@ export const TasksManager: React.FC = () => {
     } catch (err) {
       showErrorToast('Failed to rename task list. Please try again.');
       console.error('Failed to rename task list:', err);
+    } finally {
+      setShowRenameListModal(false);
     }
   };
 
@@ -1305,40 +1356,36 @@ export const TasksManager: React.FC = () => {
             <div className="header-left">
               <button
                 onClick={handleLogoClick}
-                className="extension-brand-btn"
+                className="extension-brand-btn extension-brand-btn-styled"
               >
-                <div className="extension-icon">📋</div>
-                <h1 className="header-title">
+                <div className="extension-icon">
+                  <img src="icons/icon128.png" alt="Tasks-Do-List" className="extension-icon-img" />
+                </div>
+                <h1 className="header-title header-title-no-select">
                   <span className="title-tasks">Tasks</span>-Do-List
                 </h1>
               </button>
             </div>
-            <div className="header-controls-container">
-              <button
-                onClick={() => {}}
-                className="refresh-tasks-btn"
-                title={t('actions.refreshTasks')}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-                  <path d="M21 3v5h-5"/>
-                  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-                  <path d="M3 21v-5h5"/>
-                </svg>
-              </button>
-                          <KebabMenu 
-              onAddAccount={addAccount} 
-              onRefresh={() => {}} 
-              onRemoveAccount={currentAccount ? removeAccount : undefined}
-              currentAccount={currentAccount}
-              hasRecentlyCompleted={false}
-              onRateExtension={handleRateExtension}
-              onReportIssue={handleReportIssue}
-              onBuyMeACoffee={handleBuyMeACoffee}
-              onOpen={openMainKebabMenu}
-              open={showMainKebabMenu}
-              onToggle={setShowMainKebabMenu}
-            />
+            <div className="header-controls-styled">
+              <LanguageSelector 
+                className="header-language-selector" 
+                onOpen={openLanguageSelector}
+                open={showLanguageSelector}
+                onToggle={setShowLanguageSelector}
+              />
+              <KebabMenu 
+                onAddAccount={addAccount} 
+                onRefresh={() => {}} 
+                onRemoveAccount={currentAccount ? removeAccount : undefined}
+                currentAccount={currentAccount}
+                hasRecentlyCompleted={false}
+                onRateExtension={handleRateExtension}
+                onReportIssue={handleReportIssue}
+                onBuyMeACoffee={handleBuyMeACoffee}
+                onOpen={openMainKebabMenu}
+                open={showMainKebabMenu}
+                onToggle={setShowMainKebabMenu}
+              />
             </div>
           </div>
         </div>
@@ -1348,7 +1395,13 @@ export const TasksManager: React.FC = () => {
           <div className="empty-state-message">
             {t('emptyStates.noAccountsMessage')}
           </div>
-          <button onClick={addAccount} className="btn btn-primary">
+          <button onClick={addAccount} className="btn btn-primary btn-modern">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <line x1="19" y1="8" x2="19" y2="14"/>
+              <line x1="16" y1="11" x2="22" y2="11"/>
+            </svg>
             {t('accounts.addGoogleAccount')}
           </button>
         </div>
@@ -1386,7 +1439,12 @@ export const TasksManager: React.FC = () => {
             </button>
           </div>
           <div className="header-controls-styled">
-            <LanguageSelector className="header-language-selector" />
+            <LanguageSelector 
+              className="header-language-selector" 
+              onOpen={openLanguageSelector}
+              open={showLanguageSelector}
+              onToggle={setShowLanguageSelector}
+            />
             <button
               onClick={handleRefreshAll}
               className="refresh-tasks-btn refresh-tasks-btn-styled"
@@ -1660,6 +1718,28 @@ export const TasksManager: React.FC = () => {
 
 
       </div>
+      
+      {/* Modal Components */}
+      <Modal
+        isOpen={showCreateListModal}
+        onClose={() => setShowCreateListModal(false)}
+        onConfirm={handleCreateTaskListConfirm}
+        title={t('taskLists.enterListName')}
+        placeholder={t('taskLists.enterListName')}
+        confirmText={t('common.confirm')}
+        cancelText={t('common.cancel')}
+      />
+      
+      <Modal
+        isOpen={showRenameListModal}
+        onClose={() => setShowRenameListModal(false)}
+        onConfirm={handleRenameTaskListConfirm}
+        title={t('taskLists.enterNewListName')}
+        placeholder={t('taskLists.enterNewListName')}
+        defaultValue={renameListCurrentName}
+        confirmText={t('common.confirm')}
+        cancelText={t('common.cancel')}
+      />
     </div>
   );
 }; 
